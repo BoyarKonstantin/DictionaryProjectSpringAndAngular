@@ -8,11 +8,11 @@ import {Word} from "./word";
 })
 
 export class WordService{
-  private apiServerUrl = '';
+  private apiServerUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
-  public getWord(): Observable<Word[]>{
+  public getWords(): Observable<Word[]>{
     return this.http.get<Word[]>(`${this.apiServerUrl}/word/all`);
   }
   public addWord(word: Word): Observable<Word>{
