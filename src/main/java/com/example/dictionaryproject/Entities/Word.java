@@ -10,13 +10,10 @@ public class Word implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false, updatable = false)
     private long id;
-    @Column(nullable = false)
     private String englishWord;
-    @Column(nullable = false)
     private String translateWord;
-    @Column
     private String transcription;
-    @Column(nullable = false, updatable = false)
+
     private String wordCode;
 
     public Word(String englishWord, String translateWord, String transcription) {

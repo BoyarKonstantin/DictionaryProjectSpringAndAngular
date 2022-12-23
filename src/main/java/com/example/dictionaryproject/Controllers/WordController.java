@@ -18,7 +18,7 @@ public class WordController {
 
         this.wordService = wordService;
     }
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Word>> getAllWords(){
         List<Word> words = wordService.findAll();
         return new ResponseEntity<>(words, HttpStatus.OK);
