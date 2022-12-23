@@ -7,7 +7,9 @@
   <title>Document</title>
 </head>
 <body>
+
   <div class="body-div">
+
   <table class="styled-table">
     <thead>
     <tr>
@@ -20,13 +22,22 @@
       <th>
         Translate word
       </th>
+      <th>
+        Activity
+      </th>
     </tr>
     </thead>
-    <tbody>
+
+    <tbody id="main-container">
       <tr *ngFor="let word of words">
         <td>{{word.englishWord}}</td>
         <td> {{word.transcription}}</td>
         <td>{{word.translateWord}}</td>
+        <td>
+          <div class="modal-fade" id="addWordModal" aria-labelledby="addWordModalLabel" (click) ="onOpenModal(word, 'add')">
+            <a (click)="onOpenModal(word, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><button type="button" data-toggle="modal"></button> </a>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

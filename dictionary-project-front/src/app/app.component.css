@@ -1,5 +1,5 @@
 .body-div{
-  height: 10em;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center
