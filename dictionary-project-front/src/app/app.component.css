@@ -2,7 +2,9 @@
   height: auto;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  animation-duration: 1s;
+  animation-name: slidein;
 }
 .styled-table {
   border-collapse: collapse;
@@ -11,11 +13,13 @@
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
 }
 .styled-table thead tr {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
+
 }
 .styled-table th,
 .styled-table td {
@@ -36,4 +40,15 @@
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+}
+@keyframes slidein {
+  from {
+    margin-left: 50%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }

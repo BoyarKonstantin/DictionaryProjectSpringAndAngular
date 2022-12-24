@@ -12,6 +12,9 @@ export class WordService{
 
   constructor(private http: HttpClient) { }
 
+  public mainPage(): Observable<void>{
+    return this.http.get<void>(`${this.apiServerUrl}`)
+  }
   public getWords(): Observable<Word[]>{
     return this.http.get<Word[]>(`${this.apiServerUrl}/dictionary/all`);
   }
