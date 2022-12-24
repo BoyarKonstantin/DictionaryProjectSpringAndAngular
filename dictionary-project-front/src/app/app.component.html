@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" style="color:white;">Employee Manager</a>
+    <a class="navbar-brand" style="color:white;">Your Dictionary</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,7 +38,7 @@
       <td>{{word.translateWord}}</td>
       <td>
         <button type="button" (click)="onOpenModal(word, 'delete')" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
-        <button type="button" (click)="onOpenModal(word, 'edit')" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-whatever="@fat">Update</button>
+        <button type="button" (click)="onOpenModal(word, 'update')" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-whatever="@fat">Update</button>
       </td>
     </tr>
     </tbody>
@@ -56,22 +56,22 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #addForm="ngForm">
+        <form #addForm="ngForm" (ngSubmit)="onAddWord(addForm)">
           <div class="form-group">
             <label for="english word">English word</label>
-            <input type="text" ngModel name="original word" class="form-control" id="english word" placeholder="english word" required>
+            <input type="text" ngModel name="englishWord" class="form-control" id="english word" placeholder="english word" required>
           </div>
           <div class="form-group">
-            <label for="transciption">Transcription</label>
-            <input type="email" ngModel name="transcription" class="form-control" id="transciption" placeholder="Transcription" required>
+            <label for="transcription">Transcription</label>
+            <input type="email" ngModel name="transcription" class="form-control" id="transcription" placeholder="Transcription" required>
           </div>
           <div class="form-group">
-            <label for="translate word">Job title</label>
-            <input type="text" ngModel name="jobTitle" class="form-control" id="translate word" placeholder="Translate word" required>
+            <label for="translate word">Translate word</label>
+            <input type="text" ngModel name="translateWord" class="form-control" id="translate word" placeholder="Translate word" required>
           </div>
           <div class="modal-footer">
             <button type="button" id="add-word-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            <button [disabled]="addForm.invalid"  type="submit" class="btn btn-primary" >Save changes</button>
           </div>
         </form>
       </div>
@@ -96,8 +96,8 @@
             <input type="text" ngModel="{{editWord?.englishWord}}" name = "englishWord" class="form-control" id="englishWord" placeholder="english word" required>
           </div>
           <div class="form-group">
-            <label for="transcription">Transcription</label>
-            <input type="email" ngModel="{{editWord?.transcription}}" name = "transcription" class="form-control" id="transcription" placeholder="Transcription" required>
+            <label for="editTranscription">Transcription</label>
+            <input type="email" ngModel="{{editWord?.transcription}}" name = "transcription" class="form-control" id="editTranscription" placeholder="Transcription" required>
           </div>
           <div class="form-group">
             <label for="translateWord">Translate word</label>
