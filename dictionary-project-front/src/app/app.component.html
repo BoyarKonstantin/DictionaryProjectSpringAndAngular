@@ -32,18 +32,18 @@
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let word of words" id="main-container">
-        <td>{{word.englishWord}}</td>
-        <td> {{word.transcription}}</td>
-        <td>{{word.translateWord}}</td>
-        <td>
-          <button type="button" (click)="onOpenModal(word, 'delete')" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
-          <button type="button" (click)="onOpenModal(word, 'edit')" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-whatever="@fat">Update</button>
-        </td>
-      </tr>
+    <tr *ngFor="let word of words" id="main-container">
+      <td>{{word.englishWord}}</td>
+      <td> {{word.transcription}}</td>
+      <td>{{word.translateWord}}</td>
+      <td>
+        <button type="button" (click)="onOpenModal(word, 'delete')" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
+        <button type="button" (click)="onOpenModal(word, 'edit')" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-whatever="@fat">Update</button>
+      </td>
+    </tr>
     </tbody>
   </table>
-  </div>
+</div>
 
 <!-- Add Employee Modal -->
 <div class="modal fade" id="addWordModal" tabindex="-1" role="dialog" aria-labelledby="addWordModalLabel" aria-hidden="true">
@@ -79,7 +79,7 @@
   </div>
 </div>
 
-<!-- Add Employee Modal -->
+<!-- Edit Employee Modal -->
 <div class="modal fade" id="editWordModal" tabindex="-1" role="dialog" aria-labelledby="editWordModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -90,22 +90,22 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #addForm="ngForm">
+        <form #editForm="ngForm">
           <div class="form-group">
-            <label for="edit-english word">English word</label>
-            <input type="text" ngModel name="original word" class="form-control" id="edit-english word" placeholder="english word" required>
-          </div>
-          <div class="edit-transciption">
-            <label for="transciption">Transcription</label>
-            <input type="email" ngModel name="transcription" class="form-control" id="edit-transciption" placeholder="Transcription" required>
+            <label for="englishWord">English word</label>
+            <input type="text" ngModel="{{editWord?.englishWord}}" name = "englishWord" class="form-control" id="englishWord" placeholder="english word" required>
           </div>
           <div class="form-group">
-            <label for="edit-translate word">Job title</label>
-            <input type="text" ngModel name="jobTitle" class="form-control" id="edit-translate word" placeholder="Translate word" required>
+            <label for="transcription">Transcription</label>
+            <input type="email" ngModel="{{editWord?.transcription}}" name = "transcription" class="form-control" id="transcription" placeholder="Transcription" required>
+          </div>
+          <div class="form-group">
+            <label for="translateWord">Translate word</label>
+            <input type="text" ngModel="{{editWord?.translateWord}}" name = "translateWord" class="form-control" id="translateWord" placeholder="Translate word" required>
           </div>
           <div class="modal-footer">
             <button type="button" id="edit-word-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            <button (click)="onEditWord(editForm.value)" type="submit" class="btn btn-primary" >Save changes</button>
           </div>
         </form>
       </div>
@@ -127,7 +127,7 @@
         <p>Are you sure you want to delete word?</p>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button (click)="onDeleteWord(deleteWord.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
         </div>
       </div>
     </div>

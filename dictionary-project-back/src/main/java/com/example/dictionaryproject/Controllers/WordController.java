@@ -34,9 +34,9 @@ public class WordController {
         Word newWord = wordService.addWord(word);
         return new ResponseEntity<>(newWord, HttpStatus.CREATED);
     }
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ResponseEntity<Word> updateWord(@RequestBody Word word){
-        Word updateWord = wordService.addWord(word);
+        Word updateWord = wordService.uprateWord(word);
         return new ResponseEntity<>(updateWord, HttpStatus.OK);
     }
 

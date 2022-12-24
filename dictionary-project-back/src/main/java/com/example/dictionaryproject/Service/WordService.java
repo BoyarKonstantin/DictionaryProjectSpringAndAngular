@@ -5,11 +5,13 @@ import com.example.dictionaryproject.Exceptions.WordFindByIDException;
 import com.example.dictionaryproject.Repositories.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class WordService {
     private final WordRepository wordRepository;
 

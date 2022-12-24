@@ -13,7 +13,6 @@ public class Word implements Serializable {
     private String englishWord;
     private String translateWord;
     private String transcription;
-
     private String wordCode;
 
     public Word(String englishWord, String translateWord, String transcription) {
