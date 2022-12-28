@@ -46,7 +46,6 @@ export class AppComponent implements OnInit {
     );
   }
   public onEditWord(word: Word): void {
-
     this.wordService.updateWord(word).subscribe(
       (response: Word) => {
         console.log(response);
@@ -59,7 +58,6 @@ export class AppComponent implements OnInit {
   }
 
   public onDeleteWord(wordId: number): void {
-
     this.wordService.deleteWord(wordId).subscribe(
       (response: void) => {
         console.log(response);

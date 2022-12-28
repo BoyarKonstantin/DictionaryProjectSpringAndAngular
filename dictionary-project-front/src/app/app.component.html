@@ -91,9 +91,13 @@
       </div>
       <div class="modal-body">
         <form #editForm="ngForm">
+          <div class="form-group" hidden="hidden">
+            <label for="editEnglishWord">English word id</label>
+            <input type="text" ngModel="{{editWord?.id}}" name = "id" class="form-control" id="editEnglishWordId" placeholder="english word id" required>
+          </div>
           <div class="form-group">
-            <label for="englishWord">English word</label>
-            <input type="text" ngModel="{{editWord?.englishWord}}" name = "englishWord" class="form-control" id="englishWord" placeholder="english word" required>
+            <label for="editEnglishWord">English word</label>
+            <input type="text" ngModel="{{editWord?.englishWord}}" name = "englishWord" class="form-control" id="editEnglishWord" placeholder="english word" required>
           </div>
           <div class="form-group">
             <label for="editTranscription">Transcription</label>
@@ -133,5 +137,4 @@
     </div>
   </div>
 </div>
-
 

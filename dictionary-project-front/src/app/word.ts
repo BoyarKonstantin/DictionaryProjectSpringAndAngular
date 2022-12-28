@@ -3,5 +3,4 @@ export interface Word{
   englishWord: string;
   translateWord: string;
   transcription: string;
-  wordCode: string;
 }
